@@ -1,26 +1,26 @@
 import 'package:clarba/core/theme/app_palette.dart';
-import 'package:clarba/features/auth/presentation/pages/login_screen.dart';
+import 'package:clarba/features/auth/presentation/pages/register_screen.dart';
 import 'package:clarba/features/auth/presentation/widgets/auth_field.dart';
 import 'package:clarba/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
-  final nameController = TextEditingController();
+class _LoginScreenState extends State<LoginScreen> {
+
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
-    nameController.dispose();
+  
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -29,7 +29,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
@@ -38,19 +37,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               const Text(
-                "Register",
+                "Login",
                 style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 30),
-              AuthField(
-                hintText: "Name",
-                controller: nameController,
-                isObscureText: false,
-              ),
-              const SizedBox(height: 15),
+           
               AuthField(
                 hintText: "Email",
                 controller: emailController,
@@ -65,22 +59,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const AuthGradientButton(buttonText: "Register",),
+              const AuthGradientButton(buttonText: "Login"),
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: (){
                   Navigator.push(
                     context, 
-                    MaterialPageRoute(builder: (context)=> const LoginScreen()),);
+                    MaterialPageRoute(builder: (context)=> const RegisterScreen()),);
                 }
                 ,
                 child: RichText(
                     text: TextSpan(
-                        text: "Already have an account? ",
+                        text: "Don't have an account? ",
                         style: Theme.of(context).textTheme.titleMedium,
                         children: [
                       TextSpan(
-                        text: "Login",
+                        text: "Register",
                         style: Theme.of(context).textTheme.titleMedium?.copyWith(
                             color: AppPalette.gradient2,
                             fontWeight: FontWeight.bold),

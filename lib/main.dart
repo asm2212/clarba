@@ -1,5 +1,5 @@
 import 'package:clarba/core/theme/theme.dart';
-import 'package:clarba/features/auth/presentation/pages/register_screen.dart';
+import 'package:clarba/features/auth/presentation/pages/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme:AppTheme.darkThemeMode,
-      home: const RegisterScreen(),
+      home: const LoginScreen(),
     );
   }
 }
